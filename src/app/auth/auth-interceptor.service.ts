@@ -20,8 +20,6 @@ export class AuthInterceptorService implements HttpInterceptor {
       take(1),
       exhaustMap((user) => {
         if (!user || user.token == null) {
-          console.log('im here', user);
-          console.log('im here', user?.token);
           return next.handle(req);
         }
         const newReq = req.clone({
